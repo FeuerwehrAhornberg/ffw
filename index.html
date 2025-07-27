@@ -37,7 +37,7 @@
             z-index: 1000;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border-bottom: 3px solid transparent;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.98)), 
+            background-image: linear-gradient(rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.98)),
                               linear-gradient(90deg, #e74c3c, #f39c12);
             background-origin: border-box;
             background-clip: padding-box, border-box;
@@ -109,7 +109,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, rgba(231, 76, 60, 0.9), rgba(243, 156, 18, 0.8)), 
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.9), rgba(243, 156, 18, 0.8)),
                         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800"><defs><pattern id="firePattern" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="30" fill="%23ffffff" opacity="0.1"/><circle cx="25" cy="25" r="15" fill="%23ffffff" opacity="0.05"/><circle cx="75" cy="75" r="20" fill="%23ffffff" opacity="0.08"/></pattern></defs><rect width="1400" height="800" fill="url(%23firePattern)"/></svg>');
             background-size: cover;
             background-position: center;
@@ -518,8 +518,21 @@
         }
 
         .social-media {
-            margin: 3rem 0;
+            margin: 3rem auto; /* Adjusted margin for better centering and spacing */
+            text-align: center; /* Center the content inside */
+            padding: 4rem 0; /* Add padding similar to other sections */
+            background: linear-gradient(135deg, #f8f9ff 0%, #e3f2fd 100%); /* Light background */
+            border-radius: 25px; /* Match other sections */
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08); /* Match other sections */
+            color: #2c3e50; /* Adjust text color for light background */
         }
+
+        .social-media h3 {
+            font-size: clamp(2rem, 4vw, 2.5rem); /* Slightly smaller title for this section */
+            margin-bottom: 2rem;
+            color: #e74c3c; /* Accent color for the title */
+        }
+
 
         .social-link {
             display: inline-block;
@@ -795,90 +808,82 @@
                     </div>
                 </div>
             </div>
-<section id="impressum" class="section">
-    <div class="container">
-        <h2 class="section-title">Impressum</h2>
-        
-        <!-- Verantwortlich für diese Website -->
-        <div class="contact-info">
-            <h3>Verantwortlich für diese Website</h3>
-            <div class="contact-item">
-                <span>👨‍💻</span>
-                <div>
-                    <strong>Verantwortlich für diese Website:</strong><br>
-                    Daten wegen Missbrauch entfernt, wichtige Anfragen bitte per Mail.<br>
-                    Kirchgasse 3<br>
-                    95176 Konradsreuth
-                </div>
-            </div>
-            
-            <!-- Kontaktinformationen -->
-            <div class="contact-item">
-                <span>📧</span>
-                <div>
-                    <strong>Kontakt:</strong><br>
-                    E-Mail: <a href="mailto:exposeworld.consolecrafter@gmail.com">exposeworld.consolecrafter@gmail.com</a><br>
-                    Website: <a href="https://www.ffw-ahornberg.de" target="_blank">www.ffw-ahornberg.de</a>
-                </div>
-            </div>
-        </div>
+        </section>
 
-        <!-- Datenschutzerklärung -->
-        <div class="datenschutzerklaerung">
-            <h3>Datenschutzerklärung</h3>
+        <section id="impressum" class="section">
+            <div class="container">
+                <h2 class="section-title">Impressum</h2>
 
-            <!-- 1. Inhalt des Onlineangebotes -->
-            <p><strong>1. Inhalt des Onlineangebotes</strong></p>
-            <p>
-                Der Autor übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen. 
-                Haftungsansprüche gegen den Autor, die durch die Nutzung oder Nichtnutzung der bereitgestellten Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, 
-                sofern seitens des Autors kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.
-                Alle Angebote sind freibleibend und unverbindlich. Der Autor behält sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.
-            </p>
-            
-            <!-- 2. Verweise und Links -->
-            <p><strong>2. Verweise und Links</strong></p>
-            <p>
-                Bei direkten oder indirekten Verweisen auf fremde Webseiten ("Hyperlinks"), die außerhalb des Verantwortungsbereiches des Autors liegen, 
-                würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem der Autor von den Inhalten Kenntnis hat und es ihm technisch möglich und zumutbar wäre, 
-                die Nutzung im Falle rechtswidriger Inhalte zu verhindern.
-                Der Autor erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen Inhalte auf den zu verlinkenden Seiten erkennbar waren. 
-                Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der verlinkten/verknüpften Seiten hat der Autor keinerlei Einfluss.
-            </p>
+                <div class="contact-info">
+                    <h3>Verantwortlich für diese Website</h3>
+                    <div class="contact-item">
+                        <span>👨‍💻</span>
+                        <div>
+                            <strong>Verantwortlich für diese Website:</strong><br>
+                            Daten wegen Missbrauch entfernt, wichtige Anfragen bitte per Mail.<br>
+                            Kirchgasse 3<br>
+                            95176 Konradsreuth
+                        </div>
+                    </div>
 
-            <!-- 3. Urheber- und Kennzeichenrecht -->
-            <p><strong>3. Urheber- und Kennzeichenrecht</strong></p>
-            <p>
-                Der Autor ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu beachten, 
-                von ihm selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Videosequenzen und Texte zurückzugreifen.
-                Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer.
-            </p>
-
-            <!-- 4. Datenschutz -->
-            <p><strong>4. Datenschutz</strong></p>
-            <p>
-                Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (E-Mail-Adressen, Namen, Anschriften) besteht, erfolgt die Preisgabe dieser Daten freiwillig.
-                Die Inanspruchnahme und Bezahlung aller angebotenen Dienste ist auch ohne Angabe persönlicher Daten oder unter Angabe anonymisierter Daten oder eines Pseudonyms gestattet.
-            </p>
-
-            <!-- 5. Rechtswirksamkeit dieses Haftungsausschlusses -->
-            <p><strong>5. Rechtswirksamkeit dieses Haftungsausschlusses</strong></p>
-            <p>
-                Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten, von dem aus auf diese Seite verwiesen wurde. Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokuments in ihrem Inhalt und ihrer Gültigkeit davon unberührt.
-            </p>
-        </div>
-    </div>
-</section>
-
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <div>
+                            <strong>Kontakt:</strong><br>
+                            E-Mail: <a href="mailto:exposeworld.consolecrafter@gmail.com">exposeworld.consolecrafter@gmail.com</a><br>
+                            Website: <a href="https://www.ffw-ahornberg.de" target="_blank">www.ffw-ahornberg.de</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="social-media">
-                    <h3>Folgen Sie uns:</h3>
-                    <a href="https://www.facebook.com/ffahornberg" target="_blank" class="social-link">📘</a>
+                <div class="datenschutzerklaerung">
+                    <h3>Datenschutzerklärung</h3>
+
+                    <p><strong>1. Inhalt des Onlineangebotes</strong></p>
+                    <p>
+                        Der Autor übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen.
+                        Haftungsansprüche gegen den Autor, die durch die Nutzung oder Nichtnutzung der bereitgestellten Informationen verursacht wurden, sind grundsätzlich ausgeschlossen,
+                        sofern seitens des Autors kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.
+                        Alle Angebote sind freibleibend und unverbindlich. Der Autor behält sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.
+                    </p>
+
+                    <p><strong>2. Verweise und Links</strong></p>
+                    <p>
+                        Bei direkten oder indirekten Verweisen auf fremde Webseiten ("Hyperlinks"), die außerhalb des Verantwortungsbereiches des Autors liegen,
+                        würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem der Autor von den Inhalten Kenntnis hat und es ihm technisch möglich und zumutbar wäre,
+                        die Nutzung im Falle rechtswidriger Inhalte zu verhindern.
+                        Der Autor erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen Inhalte auf den zu verlinkenden Seiten erkennbar waren.
+                        Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der verlinkten/verknüpften Seiten hat der Autor keinerlei Einfluss.
+                    </p>
+
+                    <p><strong>3. Urheber- und Kennzeichenrecht</strong></p>
+                    <p>
+                        Der Autor ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu beachten,
+                        von ihm selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Videosequenzen und Texte zurückzugreifen.
+                        Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer.
+                    </p>
+
+                    <p><strong>4. Datenschutz</strong></p>
+                    <p>
+                        Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (E-Mail-Adressen, Namen, Anschriften) besteht, erfolgt die Preisgabe dieser Daten freiwillig.
+                        Die Inanspruchnahme und Bezahlung aller angebotenen Dienste ist auch ohne Angabe persönlicher Daten oder unter Angabe anonymisierter Daten oder eines Pseudonyms gestattet.
+                    </p>
+
+                    <p><strong>5. Rechtswirksamkeit dieses Haftungsausschlusses</strong></p>
+                    <p>
+                        Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten, von dem aus auf diese Seite verwiesen wurde. Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokuments in ihrem Inhalt und ihrer Gültigkeit davon unberührt.
+                    </p>
                 </div>
             </div>
         </section>
+
+        <section class="social-media section">
+            <div class="container">
+                <h3>Folgen Sie uns:</h3>
+                <a href="https://www.facebook.com/ffahornberg" target="_blank" class="social-link">📘</a>
+                </div>
+        </section>
+
     </main>
 
     <footer>
@@ -886,8 +891,6 @@
             <div class="footer-links">
                 <a href="#impressum">Impressum</a>
                 <a href="https://mc-host24.de/donate/consolecrafter">Spenden</a>
-                </a>
-            </div>
             </div>
             <p>&copy; 2025 Freiwillige Feuerwehr Ahornberg e.V. • Alle Rechte vorbehalten</p>
             <p>Website made by ConsoleCrafter 🔥</p>
@@ -964,7 +967,7 @@
             ctaButton.addEventListener('mouseover', function() {
                 this.innerHTML = '🚒 ' + this.innerHTML;
             });
-            
+
             ctaButton.addEventListener('mouseout', function() {
                 this.innerHTML = this.innerHTML.replace('🚒 ', '');
             });
@@ -973,20 +976,20 @@
         // Weather Widget mit echter Open-Meteo API
         async function loadWeather() {
             const weatherInfo = document.getElementById('weather-info');
-            
+
             try {
                 // Open-Meteo API für Ahornberg (Koordinaten: 50.2167, 11.9167)
                 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=50.2167&longitude=11.9167&current_weather=true&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,pressure_msl&timezone=Europe/Berlin&forecast_days=1');
                 const data = await response.json();
-                
+
                 const current = data.current_weather;
                 const hourly = data.hourly;
                 const currentHour = new Date().getHours();
-                
+
                 // Aktuelle Werte aus den stündlichen Daten
                 const humidity = hourly.relative_humidity_2m[currentHour] || 'N/A';
                 const pressure = hourly.pressure_msl[currentHour] || 'N/A';
-                
+
                 // Wetter-Code zu Beschreibung
                 const weatherDescriptions = {
                     0: 'Klar',
@@ -1014,9 +1017,9 @@
                     96: 'Gewitter mit Hagel',
                     99: 'Starkes Gewitter mit Hagel'
                 };
-                
+
                 const description = weatherDescriptions[current.weathercode] || 'Unbekannt';
-                
+
                 weatherInfo.innerHTML = `
                     <div class="weather-temp">${Math.round(current.temperature)}°C</div>
                     <div class="weather-desc">${description}</div>
