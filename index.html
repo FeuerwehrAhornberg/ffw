@@ -125,6 +125,8 @@
             display: flex;
             list-style: none;
             gap: 3rem;
+            flex-grow: 1; /* Lässt die Links den verfügbaren Platz einnehmen */
+            justify-content: center; /* Zentriert die Links */
         }
 
         .nav-links a {
@@ -156,6 +158,28 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Style für den Mute Button */
+        #mute-button {
+            background: none;
+            border: none;
+            font-size: 1.8rem; /* Größe des Icons */
+            cursor: pointer;
+            color: #2c3e50; /* Standardfarbe */
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px; /* Abstand zu den Nav-Links */
+        }
+
+        #mute-button:hover {
+            color: #e74c3c;
+            background-color: rgba(231, 76, 60, 0.1);
+            transform: scale(1.1);
         }
 
         .hero {
@@ -659,6 +683,19 @@
                 margin-right: 0;
                 margin-bottom: 1rem;
             }
+
+            /* Responsive für den Mute Button */
+            #mute-button {
+                margin-left: 0; /* Kein zusätzlicher Abstand auf kleinen Bildschirmen */
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            nav {
+                justify-content: space-between; /* Wiederherstellen der ursprünglichen Ausrichtung */
+            }
         }
 
         .float-animation {
@@ -834,6 +871,7 @@
                 <li><a href="#gallery">Galerie</a></li>
                 <li><a href="#impressum">Impressum</a></li>
             </ul>
+            <button id="mute-button" aria-label="Musik stummschalten">🔇</button>
         </nav>
     </header>
 
@@ -1254,6 +1292,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const splashScreen = document.getElementById('splash-screen');
             const backgroundMusic = document.getElementById('background-music');
+            const muteButton = document.getElementById('mute-button');
 
             // Lautstärke einstellen
             backgroundMusic.volume = 0.2; // Setzt die Lautstärke auf 20%
@@ -1268,6 +1307,29 @@
                     // Zeige ggf. einen Hinweis an, dass Musik manuell gestartet werden muss
                 });
             });
+
+            // Mute-Button Logik
+            muteButton.addEventListener('click', () => {
+                if (backgroundMusic.muted) {
+                    backgroundMusic.muted = false;
+                    muteButton.textContent = '🔊'; // Lautsprecher an
+                    muteButton.setAttribute('aria-label', 'Musik stummschalten');
+                } else {
+                    backgroundMusic.muted = true;
+                    muteButton.textContent = '🔇'; // Lautsprecher aus
+                    muteButton.setAttribute('aria-label', 'Musik wiedergeben');
+                }
+            });
+
+            // Initialen Zustand des Buttons setzen (falls Musik beim Laden schon gemutet ist)
+            // Dies ist wichtig, wenn die Seite neu geladen wird und der Browser den Mute-Status speichert.
+            if (backgroundMusic.muted) {
+                muteButton.textContent = '🔇';
+                muteButton.setAttribute('aria-label', 'Musik wiedergeben');
+            } else {
+                muteButton.textContent = '🔊';
+                muteButton.setAttribute('aria-label', 'Musik stummschalten');
+            }
         });
     </script>
 </body>
