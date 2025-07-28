@@ -19,7 +19,56 @@
             color: #2c3e50;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            overflow: hidden; /* Verhindert Scrollen, bis der Startbildschirm weg ist */
         }
+
+        /* Startbildschirm Overlay */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a2e; /* Dunkler Hintergrund wie im Bild */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Grundfarbe, wird vom Text überschrieben */
+            font-size: 3em;
+            cursor: pointer;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        #splash-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Neuer Style für den Text auf dem Startbildschirm */
+        #splash-screen span {
+            font-size: clamp(2.5em, 8vw, 6em); /* Responsivere Größe */
+            font-weight: 900; /* Extra fett */
+            text-transform: uppercase; /* Alles groß */
+            letter-spacing: 5px; /* Etwas mehr Abstand zwischen den Buchstaben */
+            background: linear-gradient(45deg, #e74c3c, #f39c12); /* Roter-Orange Verlauf */
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(231, 76, 60, 0.8), /* Roter Leuchteffekt */
+                         0 0 30px rgba(243, 156, 18, 0.6); /* Oranger Schatten */
+            animation: pulseText 2s infinite alternate; /* Leichter Puls-Effekt */
+        }
+
+        @keyframes pulseText {
+            from {
+                text-shadow: 0 0 15px rgba(231, 76, 60, 0.8), 0 0 30px rgba(243, 156, 18, 0.6);
+            }
+            to {
+                text-shadow: 0 0 25px rgba(231, 76, 60, 1), 0 0 40px rgba(243, 156, 18, 0.8);
+            }
+        }
+
 
         .container {
             max-width: 1400px;
@@ -762,6 +811,15 @@
 </head>
 <body>
 
+    <div id="splash-screen">
+        <span>Klicke</span>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="lied.mp3" type="audio/mpeg">
+        Dein Browser unterstützt das Audio-Element nicht.
+    </audio>
+
     <header>
         <nav class="container">
             <div class="logo">
@@ -1191,6 +1249,23 @@
 
         // Aktualisiere Wetter alle 10 Minuten
         setInterval(loadWeather, 600000);
+
+        // Splash Screen Logik und Musik
+        document.addEventListener('DOMContentLoaded', () => {
+            const splashScreen = document.getElementById('splash-screen');
+            const backgroundMusic = document.getElementById('background-music');
+
+            splashScreen.addEventListener('click', () => {
+                splashScreen.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Erlaube Scrollen wieder
+
+                // Versuche Musik abzuspielen
+                backgroundMusic.play().catch(error => {
+                    console.log("Musik konnte nicht automatisch abgespielt werden (Nutzerinteraktion benötigt):", error);
+                    // Zeige ggf. einen Hinweis an, dass Musik manuell gestartet werden muss
+                });
+            });
+        });
     </script>
 </body>
 </html>
