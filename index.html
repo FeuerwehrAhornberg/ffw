@@ -494,7 +494,7 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e74c3c; /* Roter Rand, passend zum Feuerwehr-Thema */
+            border: 1px solid #e74c3c; /* Roter Rand, passend zum Feuerwehr-T-hema */
             margin-bottom: 2rem; /* Abstand nach unten */
         }
 
@@ -710,6 +710,53 @@
             font-size: 1.2rem;
             opacity: 0.8;
         }
+
+        /* Neue Styles für die Einsätze Liste */
+        .deployment-list {
+            list-style: none; /* Entfernt die Standard-Aufzählungspunkte */
+            padding: 0;
+            margin-top: 3rem;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(231, 76, 60, 0.1);
+        }
+
+        .deployment-list li {
+            padding: 1.2rem 2rem;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .deployment-list li:last-child {
+            border-bottom: none;
+        }
+
+        .deployment-list li:hover {
+            background-color: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .deployment-list li strong {
+            color: #e74c3c;
+            margin-right: 0.5rem;
+        }
+
+        .deployment-list .placeholder-item {
+            font-size: 1.8rem; /* Etwas größer für den Slash */
+            font-weight: bold;
+            color: #f39c12; /* Orange für den Slash */
+            text-align: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e3f2fd, #f0f4f8);
+            border-bottom: 2px dashed #ccc;
+        }
     </style>
 </head>
 <body>
@@ -723,7 +770,8 @@
             <ul class="nav-links">
                 <li><a href="#home">Start</a></li>
                 <li><a href="#about">Über uns</a></li>
-                <li><a href="#services">Einsätze</a></li>
+                <li><a href="#services">Einsatzbereiche</a></li>
+                <li><a href="#deployments">Einsätze</a></li>
                 <li><a href="#gallery">Galerie</a></li>
                 <li><a href="#impressum">Impressum</a></li>
             </ul>
@@ -803,6 +851,30 @@
             </div>
         </section>
 
+        <section id="deployments" class="section">
+            <div class="container">
+                <h2 class="section-title">Einsatzarchiv</h2>
+                <ul class="deployment-list">
+                    <li class="placeholder-item">/</li>
+                    <li>
+                        <strong>00.00.0000:</strong> Aktuell noch nichts ()
+                        <span style="font-size: 0.9em; color: #7f8c8d;">🚨🚗</span>
+                    </li>
+                    <li>
+                        <strong>14.04.2025:</strong> Kuhstallbrand (Almbranz)
+                        <span style="font-size: 0.9em; color: #7f8c8d;">🐄🏠</span>
+                    </li>
+                    <li>
+                        <strong>05.04.2025:</strong> Verkehrsunfall (Helmbrechtser Straße, Ahornberg)
+                        <span style="font-size: 0.9em; color: #7f8c8d;">🚨🚗</span>
+                    </li>
+                    <li>
+                        <strong>20.03.2025:</strong> Brand Scheune/Stall/Fahrzeug (Kirchgasse, Ahornberg)
+                        <span style="font-size: 0.9em; color: #7f8c8d;">🐄🏠</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
         <section id="gallery" class="gallery-section">
             <div class="container">
                 <h2 class="section-title" style="color: white;">Unsere Feuerwehr in Bildern</h2>
@@ -850,12 +922,12 @@
                         <h4>Verantwortlich für diese Website</h4>
                         <div class="contact-item">
                             <span>👨‍💻</span>
-<div>
-    <strong>Verantwortlich für diese Website:</strong><br>
-    Thomas Popp<br>
-    Kirchgasse 3<br>
-    95176 Konradsreuth
-</div>
+                            <div>
+                                <strong>Verantwortlich für diese Website:</strong><br>
+                                Thomas Popp<br>
+                                Kirchgasse 3<br>
+                                95176 Konradsreuth
+                            </div>
 
                         </div>
 
@@ -976,12 +1048,12 @@
             });
         }, observerOptions);
 
-        // Observe all cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+        // Observe all cards and deployment list items (excluding the placeholder)
+        document.querySelectorAll('.card, .deployment-list li:not(.placeholder-item)').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(element);
         });
 
         // Emergency number animation
