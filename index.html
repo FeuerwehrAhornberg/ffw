@@ -1255,6 +1255,9 @@
             const splashScreen = document.getElementById('splash-screen');
             const backgroundMusic = document.getElementById('background-music');
 
+            // Lautstärke einstellen
+            backgroundMusic.volume = 0.2; // Setzt die Lautstärke auf 20%
+
             splashScreen.addEventListener('click', () => {
                 splashScreen.classList.add('hidden');
                 document.body.style.overflow = 'auto'; // Erlaube Scrollen wieder
