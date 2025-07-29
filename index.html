@@ -911,6 +911,83 @@
             opacity: 0.6;
             background-color: #e0e0e0 !important; /* Wichtig, um den Hover-Effekt zu überschreiben */
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 10000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            animation-name: animatetop;
+            animation-duration: 0.4s;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .modal-gallery-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.2s ease-in-out;
+            cursor: zoom-in;
+        }
+
+        .modal-gallery-grid img:hover {
+            transform: scale(1.03);
+        }
     </style>
 </head>
 <body>
@@ -1096,10 +1173,10 @@
                                 <td>19:30</td>
                                 <td>Wald- und Vegetationsbrand</td>
                             </tr>
-                            <tr class="crossed-out">
+                            <tr>
                                 <td>28.07.25</td>
                                 <td>19:30</td>
-                                <td>Gruppe Löschwassereinsatz</td>
+                                <td><a href="#" class="open-drehleiter-modal">Drehleiterübung (Helmbrechts)</a></td>
                             </tr>
                             <tr>
                                 <td>15.09.25</td>
@@ -1225,7 +1302,7 @@
                     <p>
                         Der Autor ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu beachten,
                         von ihm selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Videosequenzen und Texte zurückzugreifen.
-                        Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer.
+                        Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützte Marke-n und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer.
                     </p>
 
                     <p><strong>4. Datenschutz</strong></p>
@@ -1265,6 +1342,15 @@
             </div>
         </div>
     </footer>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Drehleiterübung (Helmbrechts) - Bilder</h2>
+            <div class="modal-gallery-grid" id="drehleiterGallery">
+                </div>
+        </div>
+    </div>
 
     <script>
         // Smooth scrolling for navigation links
@@ -1469,6 +1555,38 @@
                 muteButton.textContent = '🔊';
                 muteButton.setAttribute('aria-label', 'Musik stummschalten');
             }
+
+            // Modal Logik
+            const imageModal = document.getElementById('imageModal');
+            const closeButton = document.querySelector('.close-button');
+            const drehleiterLinks = document.querySelectorAll('.open-drehleiter-modal');
+            const drehleiterGallery = document.getElementById('drehleiterGallery');
+
+            drehleiterLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    drehleiterGallery.innerHTML = ''; // Vorherige Bilder leeren
+
+                    for (let i = 1; i <= 8; i++) {
+                        const img = document.createElement('img');
+                        img.src = `pics/drehleiteruebung/drehleiteruebung${i}.jpg`;
+                        img.alt = `Drehleiterübung Bild ${i}`;
+                        drehleiterGallery.appendChild(img);
+                    }
+                    imageModal.style.display = 'flex'; // Modal anzeigen
+                });
+            });
+
+            closeButton.addEventListener('click', () => {
+                imageModal.style.display = 'none'; // Modal schließen
+            });
+
+            // Schließen, wenn außerhalb des Modals geklickt wird
+            window.addEventListener('click', (event) => {
+                if (event.target == imageModal) {
+                    imageModal.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>
